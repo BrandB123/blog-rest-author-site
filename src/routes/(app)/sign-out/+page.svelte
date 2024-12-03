@@ -4,6 +4,9 @@
     // testing async UI. Adding API call later
     const signedOut = new Promise((resolve, reject) => {
         setTimeout(() => {
+            if (localStorage.getItem("authorjwt")){
+                localStorage.removeItem("authorjwt");
+            }
             resolve('successfully');
             // return reject('failure');
             setTimeout(() => {goto('/log-in')}, 1000);
@@ -13,9 +16,15 @@
 </script>
 
 {#await signedOut}
-    <p>Wait a moment while you are signed out...</p>
+    <p class="text-center mt-8">
+        Wait a moment while you are signed out...
+    </p>
 {:then signedOut}
-    <p>You have been signed out {signedOut}</p>
+    <p class="text-center mt-8">
+        You have been signed out {signedOut}
+    </p>
 {:catch error}
-    <p>Error signing out</p>
+    <p class="text-center mt-8">
+        Error signing out
+    </p>
 {/await}

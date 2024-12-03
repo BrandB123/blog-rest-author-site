@@ -42,13 +42,15 @@
         posts = getPosts();
         console.log(posts);
     });
-        
+
 </script>
 
 <h1 class="text-4xl pl-4 mt-4">Posts</h1>
 
 {#await posts}
-<p>Loading posts...</p>
+<p class="text-center mt-8">
+    Loading posts...
+</p>
 
 {:then posts}
     {#each posts as post}
@@ -67,8 +69,12 @@
             </a>
         </div>
     {:else}
-        <p>No blog posts currently. Add a post to view it here</p>
+        <p class="text-center mt-8">
+            No blog posts currently. Add a post to view it here
+        </p>
     {/each}
 {:catch error}
-    <p>Error loading posts. Please try again later</p>
+    <p class="text-center mt-8">
+        Error loading posts. Please try again later
+    </p>
 {/await}
