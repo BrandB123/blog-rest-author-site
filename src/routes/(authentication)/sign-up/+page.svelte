@@ -9,7 +9,7 @@
 
     async function addUser(name: string, email: string, password: string){
         try {
-            const response = await fetch("http://localhost:3000/api/signup", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}api/signup`, {
                 method: "POST",
                 body: JSON.stringify({
                     name,
@@ -31,7 +31,7 @@
             }
             
             if (!response.ok){
-                throw new Error("Response: ", response.status);
+                throw new Error("Response Status: ", response.status);
             }
 
             goto('/log-in')
@@ -83,7 +83,8 @@
         bind:value={password} 
         class="block">
 
-    <button type="submit"
+    <button 
+        type="submit"
         class="p-1 border rounded-lg border-blue-600 bg-blue-500 text-neutral-200"
         onclick={(event) => {
             event.preventDefault();
