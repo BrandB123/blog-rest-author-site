@@ -1,11 +1,10 @@
 <script>
     import { goto } from '$app/navigation';
 
-    // testing async UI. Adding API call later
     const signedOut = new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (localStorage.getItem("authorjwt")){
-                localStorage.removeItem("authorjwt");
+            if (localStorage.getItem("jwtAuth")){
+                localStorage.removeItem("jwtAuth");
             }
             resolve('successfully');
             // return reject('failure');

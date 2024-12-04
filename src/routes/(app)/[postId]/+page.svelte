@@ -14,7 +14,7 @@
                 `${import.meta.env.VITE_API_URL}api/posts/${postId}/author`, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("authorjwt")}`
+                    "Authorization": `Bearer ${localStorage.getItem("jwtAuth")}`
                 }
             });
         
@@ -44,7 +44,7 @@
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("authorjwt")}`
+                    "Authorization": `Bearer ${localStorage.getItem("jwtAuth")}`
                 },
                 body: JSON.stringify({
                     postTitle: title,
@@ -86,7 +86,7 @@
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("authorjwt")}`
+                    "Authorization": `Bearer ${localStorage.getItem("jwtAuth")}`
                 }
             });
 
@@ -179,7 +179,7 @@
 
     <button
         type="submit"
-        class="border border-black rounded-xl p-1 w-1/6 mx-auto bg-blue-500 text-neutral-100 text-xl"
+        class="border border-black rounded-xl p-1 w-1/2 md:w-1/4 lg:w-1/6 mt-2 md:mt-0 mx-auto bg-blue-500 text-neutral-100 text-xl"
         onclick={(event) => {
             event.preventDefault();
             console.log(`TITLE: ${title}, MESSAGE: ${message}, PUBLISHED: ${published}`)
@@ -200,7 +200,7 @@
 
     <button 
         type="submit"
-        class="p-2 w-1/8 text-neutral-500 text-md absolute top-2 right-4 hover:font-semibold hover:text-neutral-800 "
+        class="p-2 w-1/8 text-neutral-500 text-xs md:text-md absolute top-1 md:top-2 right-0 md:right-4 hover:font-semibold hover:text-neutral-800 "
         onclick={(event) => {
             event.preventDefault()
             deletePost();

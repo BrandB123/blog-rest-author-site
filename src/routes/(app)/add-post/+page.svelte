@@ -11,7 +11,7 @@
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("authorjwt")}`
+                    "Authorization": `Bearer ${localStorage.getItem("jwtAuth")}`
                 },
                 body: JSON.stringify({
                     postTitle: title,
@@ -110,7 +110,7 @@
 
     <button
         type="submit"
-        class="border border-black rounded-xl p-1 w-1/6 mx-auto bg-blue-500 text-neutral-100 text-xl"
+        class="border border-black rounded-xl p-1 w-1/2 md:w-1/4 lg:w-1/6 mt-2 md:mt-0 mx-auto bg-blue-500 text-neutral-100 text-xl"
         onclick={(event) => {
             event.preventDefault();
 
