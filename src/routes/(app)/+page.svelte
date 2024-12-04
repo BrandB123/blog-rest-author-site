@@ -27,9 +27,6 @@
 
             const json = await response.json();
 
-            console.log("RESPONSE: ", response);
-            console.log("JSON: ", json);
-
             return json.posts
 
         } catch(err){
@@ -40,7 +37,6 @@
 
     onMount(async () => {
         posts = getPosts();
-        console.log(posts);
     });
 
 </script>
@@ -63,10 +59,17 @@
                 {post.message}
             </p>
             <a
-            href="/{post.title.split(" ").join("-").toLowerCase()}/"
+            href="/{post.id}/"
             class="m-2 p-1 text-xs absolute right-0 top-0 hover:font-bold">
                 Edit
             </a>
+            <p class="m-2 p-1 text-xs absolute right-0 bottom-0 text-neutral-400">
+                {#if post.published === true}
+                published
+                {:else}
+                archived
+                {/if}
+            </p>
         </div>
     {:else}
         <p class="text-center mt-8">
