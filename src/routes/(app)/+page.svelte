@@ -2,7 +2,16 @@
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
 
-    let posts;
+    type Post = {
+        id: number;
+        author_id: number;
+        title: string;
+        message: string;
+        published: boolean;
+        timestamp: Date;
+    }
+
+    let posts: Post[];
 
     async function getPosts(){
         try {
@@ -22,7 +31,7 @@
             }
 
             if (!response.ok){
-                throw new Error("Response Status: ", response.status)
+                throw new Error(`Response Status: ${response.status}`)
             }
 
             const json = await response.json();
@@ -36,7 +45,7 @@
 
 
     onMount(async () => {
-        posts = getPosts();
+        posts = await getPosts();
     });
 
 </script>

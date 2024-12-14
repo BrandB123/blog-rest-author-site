@@ -27,7 +27,7 @@
             }
         
             if (!response.ok){
-                throw new Error("Response Status: ", response.status);
+                throw new Error(`Response Status: ${response.status}`);
             }
         
             const json = await response.json();
@@ -70,7 +70,7 @@
             }
         
             if (!response.ok){
-                throw new Error("Response Status: ", response.status);
+                throw new Error(`Response Status: ${response.status}`);
             }
         
             goto("/");
@@ -99,7 +99,7 @@
             }
 
             if (!response.ok){
-                throw new Error("Response Status: ", response.status)
+                throw new Error(`Response Status: ${response.status}`)
             }
 
             goto("/")

@@ -37,7 +37,7 @@
             }
         
             if (!response.ok){
-                throw new Error("Response Status: ", response.status);
+                throw new Error(`Response Status: ${response.status}`);
             }
         
             goto("/");
