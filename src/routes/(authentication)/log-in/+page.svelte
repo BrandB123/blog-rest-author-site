@@ -9,7 +9,7 @@
             const response = await fetch(`${import.meta.env.VITE_API_URL}api/login`, {
                 method: "POST",
                 body: JSON.stringify({
-                    username,
+                    username: username.toLowerCase(),
                     password
                 }),
                 headers: {

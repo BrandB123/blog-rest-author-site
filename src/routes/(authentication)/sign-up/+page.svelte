@@ -13,7 +13,7 @@
                 method: "POST",
                 body: JSON.stringify({
                     name,
-                    email, 
+                    email: email.toLowerCase(), 
                     password, 
                     authorStatus: true
                 }),
